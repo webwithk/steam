@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steam - Your authentic corner shop for superior quality art supplies. Discover premium paints, brushes, canvases, and specialty art materials with old-fashioned charm and modern excellence.">
+    <meta name="keywords" content="art supplies, vintage art shop, quality paints, artist brushes, canvas, drawing supplies, authentic art materials, Steam art supplies">
+    <meta name="author" content="Steam Art Supplies">
+    <meta property="og:title" content="Steam - Authentic Art Supplies Corner Shop">
+    <meta property="og:description" content="Superior quality art supplies with old-fashioned charm. Your trusted source for authentic paints, brushes, and creative materials.">
+    <meta property="og:type" content="website">
+    <title>Steam - Authentic Art Supplies | Superior Quality Since Day One</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Crimson+Text:wght@400;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --forest-green: #2d5016;
+            --sage-green: #6b8e23;
+            --light-sage: #9db87e;
+            --cream: #f5f1e8;
+            --warm-beige: #e8dcc4;
+            --deep-brown: #4a3728;
+            --gold-accent: #b8956a;
+            --text-dark: #2c2416;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .vintage-texture {
+            position: relative;
+        }
+
+        .vintage-texture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ornate-border {
+            border: 3px solid var(--forest-green);
+            border-image: repeating-linear-gradient(
+                45deg,
+                var(--forest-green),
+                var(--forest-green) 10px,
+                var(--gold-accent) 10px,
+                var(--gold-accent) 11px
+            ) 1;
+            position: relative;
+        }
+
+        .ornate-border::before,
+        .ornate-border::after {
+            content: '❦';
+            position: absolute;
+            font-size: 24px;
+            color: var(--gold-accent);
+            background: var(--cream);
+            padding: 0 10px;
+        }
+
+        .ornate-border::before {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ornate-border::after {
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        .decorative-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--forest-green), transparent);
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .decorative-line::before {
+            content: '✦';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--cream);
+            padding: 0 15px;
+            color: var(--gold-accent);
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .page-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        #landing {
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream) 100%);
+        }
+
+        #about {
+            background: var(--cream);
+        }
+
+        #shop {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--warm-beige) 100%);
+        }
+
+        #privacy {
+            background: var(--cream);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--forest-green);
+            padding: 15px 30px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-bottom: 3px solid var(--gold-accent);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--cream);
+            text-decoration: none;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 10px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .hero-section {
+            max-width: 1400px;
+            margin: 100px auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 72px;
+            color: var(--forest-green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0 rgba(184, 149, 106, 0.2);
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            color: var(--deep-brown);
+            margin-bottom: 30px;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .vintage-btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--forest-green);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 600;
+            border: 3px solid var(--gold-accent);
+            box-shadow: 5px 5px 0 var(--deep-brown);
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        .vintage-btn:hover {
+            background: var(--sage-green);
+            transform: translate(2px, 2px);
+            box-shadow: 3px 3px 0 var(--deep-brown);
+        }
+
+        .hero-image {
+            position: relative;
+            border: 8px solid var(--forest-green);
+            box-shadow: 15px 15px 0 var(--gold-accent);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .values-section {
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+
+        .values-title {
+            font-size: 56px;
+            text-align: center;
+            color: var(--forest-green);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border: 4px solid var(--forest-green);
+            position: relative;
+            box-shadow: 8px 8px 0 var(--light-sage);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 0 var(--light-sage);
+        }
+
+        .value-icon {
+            font-size: 48px;
+            color: var(--gold-accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-size: 28px;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 18px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 56px;
+            color: var(--forest-green);
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .about-image {
+            border: 8px solid var(--forest-green);
+            box-shadow: 15px 15px 0 var(--gold-accent);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .shop-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .shop-title {
+            font-size: 56px;
+            text-align: center;
+            color: var(--forest-green);
+            margin-bottom: 60px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border: 5px solid var(--forest-green);
+            padding: 0;
+            box-shadow: 10px 10px 0 var(--light-sage);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 15px 15px 0 var(--light-sage);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--gold-accent);
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            font-size: 28px;
+            color: var(--forest-green);
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--sage-green);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .privacy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border: 5px solid var(--forest-green);
+            box-shadow: 12px 12px 0 var(--gold-accent);
+        }
+
+        .privacy-content h2 {
+            font-size: 48px;
+            color: var(--forest-green);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .privacy-content h3 {
+            font-size: 28px;
+            color: var(--sage-green);
+            margin: 35px 0 20px;
+        }
+
+        .privacy-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .privacy-content ul {
+            margin: 20px 0 20px 40px;
+        }
+
+        .privacy-content li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: var(--forest-green);
+            color: var(--cream);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 4px solid var(--gold-accent);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .kuse-branding {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold-accent);
+        }
+
+        .kuse-branding a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .kuse-branding a:hover {
+            color: var(--gold-accent);
+            cursor: pointer;
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--forest-green);
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                margin-top: 80px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-content p {
+                font-size: 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text h2 {
+                font-size: 42px;
+            }
+
+            .shop-title,
+            .values-title {
+                font-size: 42px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .privacy-content {
+                padding: 40px 30px;
+            }
+
+            .privacy-content h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .logo {
+                font-size: 24px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .vintage-btn {
+                padding: 15px 35px;
+                font-size: 18px;
+            }
+
+            .hero-image img,
+            .about-image img {
+                height: 350px;
+            }
+
+            .privacy-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar vintage-texture">
+        <div class="nav-content">
+            <a href="#landing" class="logo">STEAM</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#landing">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="landing" class="page-section vintage-texture">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Authentic Art Supplies</h1>
+                <p>Discover superior quality materials crafted with care for artists who create alone</p>
+                <a href="#shop" class="vintage-btn">Explore Our Collection</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://api.kuse.ai/api/folder/v1/file/d43ecafabfe5b82ad79387ce06cb7f68606a1ab22a1423840f4754f44871d361_2473622.jpeg" alt="Vintage art supplies and materials">
+            </div>
+        </div>
+
+        <div class="values-section">
+            <div class="decorative-line"></div>
+            <h2 class="values-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <span class="value-icon">✦</span>
+                    <h3>Superior Quality</h3>
+                    <p>Every brush, every pigment, every canvas is selected with meticulous care. We believe in materials that inspire confidence and bring your artistic vision to life with unmatched excellence.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">❦</span>
+                    <h3>Authenticity</h3>
+                    <p>In a world of mass production, we honor traditional craftsmanship. Our supplies are genuine, time-tested, and sourced from artisans who understand the soul of art.</p>
+                </div>
+                <div class="value-card">
+                    <span class="value-icon">✿</span>
+                    <h3>Delightful Experience</h3>
+                    <p>Creating art should be joyful. From the moment you step into our corner shop to the first stroke on canvas, we ensure every interaction brings a smile and sparks inspiration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-section vintage-texture">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>A Corner Shop With Heart</h2>
+                <p>Steam began as a simple dream: to create a welcoming haven for artists who find their muse in solitude. We understand the quiet dedication of those who create alone, the intimate relationship between artist and materials.</p>
+                <p>Our corner shop may be small, but our commitment to quality is immense. Every item on our shelves has been carefully curated, tested, and approved by artists who know that superior materials make all the difference.</p>
+                <p>We're not just selling art supplies—we're nurturing creativity, one authentic product at a time. Whether you're a seasoned painter or just beginning your artistic journey, you'll find approachable expertise and delightful discoveries here.</p>
+                <p>Step into Steam, where old-fashioned values meet modern artistic needs, and where every artist finds exactly what their creative soul requires.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://api.kuse.ai/api/folder/v1/file/af1d5e16b8c2d9d0fb722a689dadbe6594b26ab9302534b889f0ccba68286a27_2473618.jpeg" alt="Inside Steam art supplies shop">
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="page-section vintage-texture">
+        <div class="shop-content">
+            <h2 class="shop-title">Our Collection</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/bf7143bbe4d1f4b1c9b5b36666ff443e411ebf1ef34ebd87f2634601f669ec26_2473614.jpeg" alt="Premium artist paints and brushes" class="product-image">
+                    <div class="product-info">
+                        <h3>Premium Paint Collection</h3>
+                        <p>Richly pigmented oil and acrylic paints sourced from traditional European manufacturers. Colors that stay true, textures that inspire.</p>
+                        <div class="product-price">From $24.99</div>
+                        <a href="#shop" class="vintage-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/228954d02a6d7cfcbb03c06bedb10b18b97105fffd9323d79ce8c294aae0ee96_2473615.jpeg" alt="Professional artist brushes" class="product-image">
+                    <div class="product-info">
+                        <h3>Artisan Brush Set</h3>
+                        <p>Hand-crafted brushes with natural bristles. Each brush is balanced perfectly for control and comfort during long creative sessions.</p>
+                        <div class="product-price">$39.99</div>
+                        <a href="#shop" class="vintage-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/bf7143bbe4d1f4b1c9b5b36666ff443e411ebf1ef34ebd87f2634601f669ec26_2473614.jpeg" alt="Canvas and drawing supplies" class="product-image">
+                    <div class="product-info">
+                        <h3>Canvas & Paper</h3>
+                        <p>Premium stretched canvases and archival-quality paper. The perfect foundation for works that will last generations.</p>
+                        <div class="product-price">From $18.99</div>
+                        <a href="#shop" class="vintage-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/228954d02a6d7cfcbb03c06bedb10b18b97105fffd9323d79ce8c294aae0ee96_2473615.jpeg" alt="Drawing and sketching supplies" class="product-image">
+                    <div class="product-info">
+                        <h3>Drawing Essentials</h3>
+                        <p>Charcoal, graphite, and colored pencils selected for their smoothness and depth. Every line tells a story with these tools.</p>
+                        <div class="product-price">$29.99</div>
+                        <a href="#shop" class="vintage-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/bf7143bbe4d1f4b1c9b5b36666ff443e411ebf1ef34ebd87f2634601f669ec26_2473614.jpeg" alt="Specialty art supplies" class="product-image">
+                    <div class="product-info">
+                        <h3>Specialty Items</h3>
+                        <p>Unique mediums, varnishes, and finishing supplies. The secret ingredients that transform good art into extraordinary masterpieces.</p>
+                        <div class="product-price">From $15.99</div>
+                        <a href="#shop" class="vintage-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/228954d02a6d7cfcbb03c06bedb10b18b97105fffd9323d79ce8c294aae0ee96_2473615.jpeg" alt="Complete artist starter kit" class="product-image">
+                    <div class="product-info">
+                        <h3>Starter Kit</h3>
+                        <p>Everything you need to begin your artistic journey. Carefully curated for beginners who demand quality from their first stroke.</p>
+                        <div class="product-price">$89.99</div>
+                        <a href="#shop" class="vintage-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decorative-line"></div>
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="font-size: 36px; color: var(--forest-green); margin-bottom: 20px;">Ready to Create?</h3>
+                <p style="font-size: 22px; margin-bottom: 30px; color: var(--text-dark);">Visit our corner shop or browse our full collection online</p>
+                <a href="#shop" class="vintage-btn">Start Shopping Today</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="page-section vintage-texture">
+        <div class="privacy-content">
+            <h2>Privacy Policy</h2>
+            <p style="text-align: center; font-style: italic; margin-bottom: 40px;">Last Updated: December 2024</p>
+
+            <h3>Introduction</h3>
+            <p>At Steam Art Supplies, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our corner shop or use our online services.</p>
+
+            <h3>Information We Collect</h3>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, email address, phone number, and shipping address when you make a purchase or create an account</li>
+                <li><strong>Payment Information:</strong> Credit card details or other payment method information (processed securely through our payment partners)</li>
+                <li><strong>Usage Data:</strong> Information about how you interact with our website, including pages visited, time spent, and browsing patterns</li>
+                <li><strong>Device Information:</strong> IP address, browser type, operating system, and device identifiers</li>
+            </ul>
+
+            <h3>How We Use Your Information</h3>
+            <p>We use the collected information for the following purposes:</p>
+            <ul>
+                <li>Processing and fulfilling your orders</li>
+                <li>Communicating with you about your purchases and account</li>
+                <li>Improving our products, services, and customer experience</li>
+                <li>Sending promotional materials and special offers (with your consent)</li>
+                <li>Detecting and preventing fraud or security issues</li>
+                <li>Complying with legal obligations</li>
+            </ul>
+
+            <h3>Information Sharing</h3>
+            <p>We do not sell your personal information to third parties. We may share your information with:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> Trusted partners who assist with payment processing, shipping, and website hosting</li>
+                <li><strong>Legal Authorities:</strong> When required by law or to protect our rights and safety</li>
+                <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets</li>
+            </ul>
+
+            <h3>Data Security</h3>
+            <p>We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+            <h3>Your Rights</h3>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access, update, or delete your personal information</li>
+                <li>Opt-out of marketing communications</li>
+                <li>Request a copy of the data we hold about you</li>
+                <li>Object to certain types of data processing</li>
+            </ul>
+
+            <h3>Cookies and Tracking</h3>
+            <p>Our website uses cookies and similar tracking technologies to enhance your browsing experience, analyze website traffic, and personalize content. You can control cookie preferences through your browser settings.</p>
+
+            <h3>Children's Privacy</h3>
+            <p>Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children. If we discover that we have inadvertently collected such information, we will delete it promptly.</p>
+
+            <h3>Changes to This Policy</h3>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us at:</p>
+            <p style="margin-top: 20px;"><strong>Steam Art Supplies</strong><br>
+            Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="afdfddc6d9ceccd6efdcdbcacec2cedddbdcdadfdfc3c6cadc81ccc0c2">[email&#160;protected]</a><br>
+            Phone: (555) 123-4567<br>
+            Address: 123 Artist Lane, Creative District</p>
+
+            <div class="decorative-line"></div>
+            <p style="text-align: center; font-style: italic; margin-top: 30px;">Thank you for trusting Steam with your personal information. We're committed to protecting your privacy while helping you create beautiful art.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Steam Art Supplies. All rights reserved.</p>
+            <p>123 Artist Lane, Creative District | (555) 123-4567 | <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c44494040436c5f58494d414d5e585f595c5c4045495f024f4341">[email&#160;protected]</a></p>
+            <p>Open Monday-Saturday, 9am-6pm</p>
+           
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const mobileMenuBtn = document.getElementById(`mobileMenuBtn`);
+        const navLinks = document.getElementById(`navLinks`);
+
+        mobileMenuBtn.addEventListener(`click`, () => {
+            navLinks.classList.toggle(`active`);
+        });
+
+        document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+            anchor.addEventListener(`click`, function (e) {
+                e.preventDefault();
+                navLinks.classList.remove(`active`);
+                const target = document.querySelector(this.getAttribute(`href`));
+                if (target) {
+                    const offsetTop = target.offsetTop - 70;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: `smooth`
+                    });
+                }
+            });
+        });
+
+        window.addEventListener(`scroll`, () => {
+            const navbar = document.querySelector(`.navbar`);
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = `0 6px 20px rgba(0,0,0,0.4)`;
+            } else {
+                navbar.style.boxShadow = `0 4px 12px rgba(0,0,0,0.3)`;
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: `0px 0px -100px 0px`
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = `1`;
+                    entry.target.style.transform = `translateY(0)`;
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(`.value-card, .product-card`).forEach(card => {
+            card.style.opacity = `0`;
+            card.style.transform = `translateY(30px)`;
+            card.style.transition = `all 0.6s ease`;
+            observer.observe(card);
+        });
+    </script>
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
